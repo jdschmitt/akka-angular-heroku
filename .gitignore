@@ -10,3 +10,5 @@ test-output/
 
 node_modules/
 webapp/
+
+.DS_Store

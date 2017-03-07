@@ -17,6 +17,9 @@ resourceGenerators in Compile <+= (resourceManaged, baseDirectory) map { (manage
   }
 }
 
+// watch webapp files
+watchSources <++= baseDirectory map { path => ((path / "client") ** "*").get }
+
 libraryDependencies ++= {
   val akkaV = "2.3.12"
   val sprayV = "1.3.3"
@@ -31,3 +34,24 @@ libraryDependencies ++= {
 }
 
 Revolver.settings
+
+lazy val buildFrontEnd: TaskKey[Unit] = taskKey[Unit]("Execute the npm build command to build the ui")
+
+buildFrontEnd := {
+  val s: TaskStreams = streams.value
+  s.log.info("Building front-end")
+  val shell: Seq[String] = Seq("bash", "-c")
+  val npmInstall: Seq[String] = shell :+ "npm install"
+  val npmBuild: Seq[String] = shell :+ "npm run build"
+
+  if ((npmInstall #&& npmBuild !) == 0) {
+    s.log.success("Successfully built front-end.")
+  } else {
+    throw new IllegalStateException("Failed to build front-end.")
+  }
+}
+
+// Executes when running within IDE
+//(run in Compile) <<= (run in Compile).dependsOn(buildFrontEnd)
+// Executes when running "sbt compile"
+compile <<= (compile in Compile) dependsOn buildFrontEnd

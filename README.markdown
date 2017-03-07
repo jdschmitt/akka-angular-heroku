@@ -6,28 +6,18 @@ Follow these steps to get started:
 
 1. Git-clone this repository.
 
-        $ git clone git://github.com/spray/spray-template.git my-project
+        $ git clone git://github.com/jdschmitt/spray-angular2-heroku.git my-project
 
 2. Change directory into your clone:
 
         $ cd my-project
 
-3. Launch SBT:
+3. Start the application:
 
-        $ sbt
+        > sbt compile run
 
-4. Compile everything and run all tests:
+4. Browse to [http://localhost:8080](http://localhost:8080/)
 
-        > test
+5. Start hacking on `src/main/scala/com/example/MyService.scala` for new APIs
 
-5. Start the application:
-
-        > re-start
-
-6. Browse to [http://localhost:8080](http://localhost:8080/)
-
-7. Stop the application:
-
-        > re-stop
-
-8. Start hacking on `src/main/scala/com/example/MyService.scala`
+6. Start hacking on `client` for Angular 2 app
