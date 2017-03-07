@@ -6,6 +6,20 @@ scalaVersion  := "2.11.8"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
+// webapp task
+resourceGenerators in Compile <+= (resourceManaged, baseDirectory) map { (managedBase, base) =>
+  val webappBase = base / "src" / "main" / "webapp"
+  for {
+    (from, to) <- webappBase ** "*" x rebase(webappBase, managedBase / "main" / "webapp")
+  } yield {
+    Sync.copy(from, to)
+    to
+  }
+}
+
+// watch webapp files
+watchSources <++= baseDirectory map { path => ((path / "src" / "main" / "webapp") ** "*").get }
+
 libraryDependencies ++= {
   val akkaV = "2.3.12"
   val sprayV = "1.3.3"
@@ -20,3 +34,8 @@ libraryDependencies ++= {
 }
 
 Revolver.settings
+
+
+val additionalClasses = file("src/main/webapp")
+
+unmanagedClasspath in Compile += additionalClasses
