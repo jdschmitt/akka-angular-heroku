@@ -17,9 +17,6 @@ resourceGenerators in Compile <+= (resourceManaged, baseDirectory) map { (manage
   }
 }
 
-// watch webapp files
-watchSources <++= baseDirectory map { path => ((path / "src" / "main" / "webapp") ** "*").get }
-
 libraryDependencies ++= {
   val akkaV = "2.3.12"
   val sprayV = "1.3.3"
@@ -34,8 +31,3 @@ libraryDependencies ++= {
 }
 
 Revolver.settings
-
-
-val additionalClasses = file("src/main/webapp")
-
-unmanagedClasspath in Compile += additionalClasses

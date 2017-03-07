@@ -9,3 +9,4 @@ test-output/
 .classpath_nb
 
 node_modules/
+webapp/
