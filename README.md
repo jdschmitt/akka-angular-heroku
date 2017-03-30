@@ -36,9 +36,3 @@ Follow these steps to get started:
 2. `git push heroku master`
 
 3. `heroku open`
-
-
-## Support
-Like this seed project? Support me.
-
-[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/shaty)
