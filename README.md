@@ -31,8 +31,14 @@ Follow these steps to get started:
 
 **or**
 
-1. `heroku create spray-angular-seed`
+1. `heroku create <project-name>`
 
-2. `git push heroku master`
+2. `heroku buildpacks:set heroku/nodejs`
 
-3. `heroku open`
+3. `heroku buildpacks:add heroku/scala`
+
+4. `git push heroku master`
+
+5. `heroku open`
+
+Note: The order you add the buildpacks is important. NodeJS buildpack must be added first.
