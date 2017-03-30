@@ -14,6 +14,8 @@ Follow these steps to get started:
 
    `cd my-project`
 
+3. Update Profile to match project name (replace 'spray-angular2-heroku' with 'my-project' from step 1)
+
 3. Start the application:
 
    `sbt compile run`
@@ -31,7 +33,7 @@ Follow these steps to get started:
 
 **or**
 
-1. `heroku create <project-name>`
+1. `heroku create my-project`
 
 2. `heroku buildpacks:set heroku/nodejs`
 
