@@ -22,6 +22,7 @@ class MyServiceActor extends Actor with MyService {
 trait MyService extends HttpService {
 
   def webappRoute: Route =
+    // Serve up angular2 app here
     path("")(getFromResource("webapp/index.html")) ~ getFromResourceDirectory("webapp")
 
   val myRoute: Route =

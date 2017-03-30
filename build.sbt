@@ -4,6 +4,8 @@ version       := "0.1"
 
 scalaVersion  := "2.11.8"
 
+name          := "spray-angular2-heroku"
+
 enablePlugins(JavaAppPackaging)
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")

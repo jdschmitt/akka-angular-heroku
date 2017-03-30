@@ -14,8 +14,6 @@ Follow these steps to get started:
 
    `cd my-project`
 
-3. Update Profile to match project name (replace 'spray-angular2-heroku' with 'my-project' from step 1)
-
 3. Start the application:
 
    `sbt compile run`
