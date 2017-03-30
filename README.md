@@ -42,3 +42,9 @@ Follow these steps to get started:
 5. `heroku open`
 
 Note: The order you add the buildpacks is important. NodeJS buildpack must be added first.
+
+## Other useful info
+
+* See [Angular CLI docs](https://github.com/angular/angular-cli/wiki) for adding more components etc.
+* If you update the name in [build.sbt](build.sbt) then you must also update the file name of the target in [Procfile](Procfile) to match
+* [build.sbt](build.sbt) adds a dependency to the Compile task which is responsible for building the Angular application.
