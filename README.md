@@ -26,11 +26,6 @@ Follow these steps to get started:
 
 ## Heroku
 
-### Deploying to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-**or**
-
 1. `heroku create my-project`
 
 2. `heroku buildpacks:set heroku/nodejs`
