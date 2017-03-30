@@ -1,27 +1,44 @@
-# SprayAngular2Heroku
+## spray-angular2-heroku
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
+Seed project for spray back-end with angular 2 front-end and configured for heroku
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project is a starting point to build a full-stack web application using Scala / Spray as the backend and Angular 2 as the front-end. It is configured in such a way as to allow for deployment to Heroku in a single dyno by following the steps below.
 
-## Code scaffolding
+Follow these steps to get started:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+1. Git-clone this repository.
 
-## Build
+   `git clone git://github.com/jdschmitt/spray-angular2-heroku.git my-project`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+2. Change directory into your clone:
 
-## Running unit tests
+   `cd my-project`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Start the application:
 
-## Running end-to-end tests
+   `sbt compile run`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+4. Browse to [http://localhost:8080](http://localhost:8080/)
 
-## Further help
+5. Start hacking on `src/main/scala/com/example/MyService.scala` for new APIs
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+6. Start hacking in `client` folder for Angular 2 app
+
+## Heroku
+
+### Deploying to Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+**or**
+
+1. `heroku create spray-angular-seed`
+
+2. `git push heroku master`
+
+3. `heroku open`
+
+
+## Support
+Like this seed project? Support me.
+
+[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/shaty)
