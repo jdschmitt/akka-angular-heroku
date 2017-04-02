@@ -1,6 +1,6 @@
-## spray-angular2-heroku
+## spray-angular-heroku
 
-Seed project for spray back-end with angular 2 front-end and configured for heroku
+Seed project for spray back-end with angular front-end (currently Angular 4) and configured for heroku
 
 This project is a starting point to build a full-stack web application using Scala / Spray as the backend and Angular 2 as the front-end. It is configured in such a way as to allow for deployment to Heroku in a single dyno by following the steps below.
 
@@ -22,7 +22,7 @@ Follow these steps to get started:
 
 5. Start hacking on `src/main/scala/com/example/MyService.scala` for new APIs
 
-6. Start hacking in `client` folder for Angular 2 app
+6. Start hacking in `client` folder for Angular app
 
 ## Heroku
 
@@ -44,3 +44,4 @@ Note: The order you add the buildpacks is important. NodeJS buildpack must be ad
 * If you update the name in [build.sbt](build.sbt) then you must also update the file name of the target in [Procfile](Procfile) to match
 * [build.sbt](build.sbt) adds a dependency to the Compile task which is responsible for building the Angular application.
 * Basic Specs2 tests included. Execute with `sbt test`
+* For Angular 2 front-end, check the angular2 [branch](https://github.com/jdschmitt/spray-angular-heroku/tree/angular2).
