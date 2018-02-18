@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/spray-angular2-heroku
+web: target/universal/stage/bin/akka-angular-heroku
