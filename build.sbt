@@ -4,7 +4,7 @@ version       := "0.1"
 
 scalaVersion  := "2.11.8"
 
-name          := "spray-angular2-heroku"
+name          := "akka-angular-heroku"
 
 enablePlugins(JavaAppPackaging)
 
@@ -25,15 +25,16 @@ resourceGenerators in Compile <+= (resourceManaged, baseDirectory) map { (manage
 watchSources <++= baseDirectory map { path => ((path / "client") ** "*").get }
 
 libraryDependencies ++= {
-  val akkaV = "2.3.12"
-  val sprayV = "1.3.3"
+  lazy val akkaHttpVersion = "10.0.11"
+  lazy val akkaVersion    = "2.5.8"
   Seq(
-    "io.spray"            %%  "spray-can"     % sprayV,
-    "io.spray"            %%  "spray-routing" % sprayV,
-    "io.spray"            %%  "spray-testkit" % sprayV  % "test",
-    "com.typesafe.akka"   %%  "akka-actor"    % akkaV,
-    "com.typesafe.akka"   %%  "akka-testkit"  % akkaV   % "test",
-    "org.specs2"          %%  "specs2-core"   % "2.3.11" % "test"
+    "com.typesafe.akka" %% "akka-http"            % akkaHttpVersion,
+    "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
+    "com.typesafe.akka" %% "akka-http-xml"        % akkaHttpVersion,
+    "com.typesafe.akka" %% "akka-stream"          % akkaVersion,
+    "com.typesafe.akka" %% "akka-testkit"         % akkaVersion       % Test,
+    "com.typesafe.akka" %% "akka-http-testkit"    % akkaHttpVersion   % Test,
+    "org.scalatest"     %% "scalatest"            % "3.0.5"           % Test
   )
 }
 

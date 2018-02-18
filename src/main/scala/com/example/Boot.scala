@@ -1,25 +1,35 @@
 package com.example
 
-import akka.actor.{ActorSystem, Props}
-import akka.io.IO
+import akka.actor.ActorSystem
+import akka.event.Logging
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.server.Route
+import akka.stream.ActorMaterializer
 import akka.util.Timeout
-import spray.can.Http
 
-import scala.concurrent.duration._
+import scala.concurrent.Await
+import scala.concurrent.duration.{Duration, _}
 import scala.util.Properties
 
-object Boot extends App {
+object Boot extends App with MyRoutes with WebRoutes {
 
   // we need an ActorSystem to host our application in
-  implicit val system = ActorSystem("spray-angular2-heroku")
+  implicit val system = ActorSystem("akka-angular-heroku")
+  implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-  // create and start our service actor
-  val service = system.actorOf(Props[MyServiceActor], "my-service")
+  override lazy val log = Logging(system, classOf[App])
+
+  lazy val routes: Route = webappRoute ~ myRoute
 
   implicit val timeout = Timeout(5.seconds)
   // Check for assigned port (heroku support) or default to 8080
   val port = Properties.envOrElse("PORT", "8080").toInt
 
   // Interface MUST be 0.0.0.0 for heroku
-  IO(Http) ! Http.Bind(service, interface = "0.0.0.0", port = port)
+  Http().bindAndHandle(routes, "0.0.0.0", port)
+
+  println(s"Server online at http://localhost:8080/")
+
+  Await.result(system.whenTerminated, Duration.Inf)
 }
