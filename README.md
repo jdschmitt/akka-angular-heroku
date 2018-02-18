@@ -2,7 +2,7 @@
 
 Seed project for spray back-end with angular front-end (currently Angular 4) and configured for heroku
 
-This project is a starting point to build a full-stack web application using Scala / Spray as the backend and Angular 2 as the front-end. It is configured in such a way as to allow for deployment to Heroku in a single dyno by following the steps below.
+This project is a starting point to build a full-stack web application using Scala / Spray as the backend and Angular 4 as the front-end. It is configured in such a way as to allow for deployment to Heroku in a single dyno by following the steps below.
 
 Follow these steps to get started:
 
